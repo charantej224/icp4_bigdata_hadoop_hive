@@ -1,5 +1,6 @@
+=================================================================================================================================
 Petrol Data:
-
+=================================================================================================================================
 create table petrol (distributer_id STRING,distributer_name STRING,amt_IN STRING,amy_OUT STRING,vol_IN INT,vol_OUT INT,year INT)
     > row format delimited fields terminated by ',' lines terminated by '\n'
     > stored as textfile;
@@ -19,8 +20,9 @@ select distributer_name from petrol group by distributer_name
 
 select distributer_id,distributer_name from petrol where (vol_IN - vol_OUT) > 50;
 
+=================================================================================================================================
 Olympic Data
-
+=================================================================================================================================
 create table olympic(athelete STRING,age INT,country STRING,year STRING,closing STRING,sport STRING,gold INT,silver INT,bronze INT,total INT) 
 row format delimited fields terminated by ‘\t’ lines terminated by '\n'
 stored as textfile;
