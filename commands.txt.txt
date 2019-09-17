@@ -20,7 +20,7 @@ SELECT distributer_id,vol_OUT FROM petrol order by vol_OUT asc limit 10;
 
 Question4:Part1
 select distributer_name from petrol group by distributer_name
-    > having (sum(vol_IN) - sum(vol_OUT)) > 50;
+having (sum(vol_IN) - sum(vol_OUT)) > 50;
 
 Question4: Part2
 select distributer_id,distributer_name,year,(vol_IN - vol_OUT) as diff from petrol where (vol_IN - vol_OUT) > 50;
