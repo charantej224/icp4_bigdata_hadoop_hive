@@ -9,16 +9,21 @@ create table petrol (distributer_id STRING,distributer_name STRING,amt_IN STRING
 	
 hive> load data local inpath '/home/cloudera/Documents/icp4/hive/petrol.txt' into table petrol;
 
+Question1:
 SELECT distributer_name,SUM(vol_OUT)  FROM  petrol GROUP  BY distributer_name;
 
+Question2:
 SELECT distributer_id,vol_OUT FROM petrol order by vol_OUT desc limit 10;
 
+Question3:
 SELECT distributer_id,vol_OUT FROM petrol order by vol_OUT asc limit 10;
 
+Question4:Part1
 select distributer_name from petrol group by distributer_name
     > having (sum(vol_IN) - sum(vol_OUT)) > 50;
 
-select distributer_id,distributer_name from petrol where (vol_IN - vol_OUT) > 50;
+Question4: Part2
+select distributer_id,distributer_name,year,(vol_IN - vol_OUT) as diff from petrol where (vol_IN - vol_OUT) > 50;
 
 =================================================================================================================================
 Olympic Data
@@ -33,14 +38,19 @@ hive> create table olympic(athelete STRING,age INT,country STRING,year STRING,cl
 
 load data local inpath '/home/cloudera/Documents/icp4/hive/olympic_data.csv' into table olympic;
 
+Question1:
 select country,SUM(total) from olympic where sport = "Swimming" GROUP BY country;
 
+Question2
 select year,SUM(total) from olympic where country = "India" GROUP BY year;
 
+Question3
 select country,SUM(total) from olympic GROUP BY country;
 
+Question4
 select country,SUM(gold) from olympic GROUP BY country;
 
+Question5
 select country,year,SUM(total) from olympic where sport = "Shooting" GROUP BY year,country order by country;
 
 

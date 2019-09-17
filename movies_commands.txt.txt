@@ -20,7 +20,7 @@ stored as textfile;
 
 load data local inpath '/home/cloudera/Documents/icp4/hive/movie/ratings.csv' into table ratings;
 
-select user_id,movie_id from ratings where rating > 4.0;
+select user_id,movie_id from ratings where rating = 5.0;
 
 ==================================================================================================
 
@@ -42,12 +42,19 @@ Question3:
 select movie_id from ratings where rating=5.0;
 ==================================================================================================
 Question4:
-select m.movie_id,m.title,r.rating from movies m
-join ratings r
+select movies.movie_id,avg(ratings.rating) avg_rating,movies.title from movies
+JOIN ratings ON(movies.movie_id = ratings.movie_id AND movies.genres like '%Action%')
+GROUP BY movies.movie_id, movies.title
+order by avg_rating desc limit 11;
+==================================================================================================
+Bonus
+select m.title,r.rating,u.user_id from ratings r
+join movies m
 on m.movie_id = r.movie_id
-and r.rating > 2.5
-order by r.rating desc
-limit 11
+join users u
+on u.user_id = r.user_id
+and r.rating between 4.4 and 4.9
+and u.gender = "M";
 
 
 
