@@ -1,5 +1,7 @@
 # icp4_bigdata_hadoop_hive
 
+To Refer more details & results visit here : https://github.com/charantej224/icp4_bigdata_hadoop_hive/wiki
+
 Question1:
 1) In real life what is the total amount  of petrol in volume  sold by every distributor?
 2) Which are the top 10 distributors ID’s for selling petrol and also display the amount of petrol sold in volume by them individually?
